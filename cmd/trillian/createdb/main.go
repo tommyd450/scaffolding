@@ -215,6 +215,7 @@ func main() {
 		_ = exitdir.Exit()
 	}()
 
+	//change1
 	flag.Parse()
 	if *mysqlURI == "" {
 		log.Panicf("Need to specify mysql_uri to know where to connect to")
