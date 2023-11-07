@@ -49,7 +49,7 @@ func main() {
 		panic("env variable NAMESPACE must be set")
 	}
 	ctx := signals.NewContext()
-
+	//testing 
 	versionInfo := version.GetVersionInfo()
 	logging.FromContext(ctx).Infof("running create_repo Version: %s GitCommit: %s BuildDate: %s", versionInfo.GitVersion, versionInfo.GitCommit, versionInfo.BuildDate)
 
