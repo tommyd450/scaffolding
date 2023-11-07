@@ -40,7 +40,7 @@ var (
 	// repository - Compressed repo, which has been tar/gzipped.
 	secretName = flag.String("rootsecret", "tuf-root", "Name of the secret to create for the initial root file")
 )
-
+//test addition
 func main() {
 	flag.Parse()
 
