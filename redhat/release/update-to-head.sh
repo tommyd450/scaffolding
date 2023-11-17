@@ -69,7 +69,7 @@ git checkout origin/"$midstream_ref" $custom_files
 
 # Move overlays to root
 if [[ -d redhat/overlays ]]; then
-  cp redhat/overlays/* .
+  cp -r redhat/overlays/* .
 fi
 
 # Copy build-assets to hack/build-assets
