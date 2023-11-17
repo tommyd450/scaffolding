@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: rekor-system
+spec:
+  ports:
+    - port: 6379
+  selector:
+    app: redis
+  clusterIP: None
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+  namespace: rekor-system
+  labels:
+    app: redis
+spec:
+  containers:
+    - image: registry.redhat.io/rhel9/redis-6@sha256:031a5a63611e1e6a9fec47492a32347417263b79ad3b63bcee72fc7d02d64c94
+      name: redis
+      args: [
+        "--bind",
+        "0.0.0.0",
+        "--appendonly",
+        "yes"
+      ]
+      ports:
+      - containerPort: 6379
+        name: redis
