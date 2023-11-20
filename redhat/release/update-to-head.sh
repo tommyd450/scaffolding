@@ -26,14 +26,14 @@
 #
 # Usage: update-to-head.sh [<git-ref>]
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
     upstream_ref="main"
     midstream_ref="main"
     redhat_ref="release-next"
 else
     upstream_ref=$1
-    midstream_ref="midstream-${upstream_ref}" # The overlays and patches for the given version
-    redhat_ref="redhat-${upstream_ref}" # The midstream repo with overlays and patches applied
+    midstream_ref="midstream-${2}" # The overlays and patches for the given version
+    redhat_ref="redhat-${2}" # The midstream repo with overlays and patches applied
 fi
 
 echo "Synchronizing ${redhat_ref} to upstream/${upstream_ref}..."
