@@ -6,6 +6,7 @@ RUN git config --global --add safe.directory /ctlog-managectroots
 COPY . .
 USER root
 
+RUN go mod vendor
 RUN make build-ctlog-managectroots
 
 # Install server

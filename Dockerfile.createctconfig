@@ -5,6 +5,7 @@ RUN git config --global --add safe.directory /createctconfig
 
 COPY . .
 USER root
+RUN go mod vendor
 RUN make build-ctlog-createctconfig
 
 # Install server

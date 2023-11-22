@@ -5,6 +5,7 @@ RUN git config --global --add safe.directory /tuf-server
 
 COPY . .
 USER root
+RUN go mod vendor
 RUN make build-tuf-server
 
 # Install server

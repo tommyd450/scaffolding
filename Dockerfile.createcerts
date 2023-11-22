@@ -5,6 +5,7 @@ RUN git config --global --add safe.directory /createcerts
 
 COPY . .
 USER root
+RUN go mod vendor
 RUN make build-fulcio-createcerts
 
 # Install server
