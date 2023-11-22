@@ -5,6 +5,7 @@ RUN git config --global --add safe.directory /cloudsqlproxy
 
 COPY . .
 USER root
+RUN go mod vendor
 RUN make build-cloudsqlproxy
 
 # Install server

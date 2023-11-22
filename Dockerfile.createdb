@@ -5,6 +5,7 @@ RUN git config --global --add safe.directory /createdb
 
 COPY . .
 USER root
+RUN go mod vendor
 RUN make build-trillian-createdb
 
 # Install server
