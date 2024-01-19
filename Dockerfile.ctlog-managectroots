@@ -17,7 +17,7 @@ RUN chown root:0 /usr/local/bin/managectroots && chmod g+wx /usr/local/bin/manag
 #Configure home directory
 ENV HOME=/home
 RUN chgrp -R 0 /${HOME} && chmod -R g=u /${HOME}
-
+#
 WORKDIR ${HOME}
 
 LABEL description="The job responsible for managing the roots of the CT (Certificate Transparency) server."
