@@ -28,6 +28,8 @@ spec:
     value: '{{revision}}'
   - name: hermetic
     value: "true"
+  - name: prefetch-input
+    value: '{"path": ".", "type": "gomod"}'
   - name: build-source-image
     value: "true"
   pipelineSpec:
