@@ -20,7 +20,7 @@ ENV HOME=/home
 RUN chgrp -R 0 /${HOME} && chmod -R g=u /${HOME}
 
 WORKDIR ${HOME}
-
+#
 LABEL description="The job responsible for verifying Fulcio."
 LABEL io.k8s.description="The job responsible for verifying Fulcio."
 LABEL io.k8s.display-name="Fulcio verification job container image for Red Hat Trusted Artifact Signer."
