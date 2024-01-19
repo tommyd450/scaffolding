@@ -4,7 +4,7 @@ WORKDIR /createcerts
 RUN git config --global --add safe.directory /createcerts
 #
 COPY . .
-RUN CGO_ENABLED=0 go mod download
+RUN CGO_ENABLED=0 go mod vendor
 RUN CGO_ENABLED=0 go build -o createcerts -mod=readonly -trimpath ./cmd/ctlog/createctconfig
 
 # Install server

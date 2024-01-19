@@ -6,7 +6,7 @@ RUN git config --global --add safe.directory /ct_server
 COPY hack/build-assets/certificate-transparency-go-1.1.6.tar.gz /ct_server/
 RUN tar -zxvf certificate-transparency-go-1.1.6.tar.gz
 WORKDIR /ct_server/certificate-transparency-go-1.1.6/trillian/ctfe/ct_server
-RUN CGO_ENABLED=0 go mod download
+RUN CGO_ENABLED=0 go mod vendor
 RUN CGO_ENABLED=0 go build -mod=readonly -trimpath ./
 
 # Install server
