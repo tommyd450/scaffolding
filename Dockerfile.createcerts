@@ -15,7 +15,7 @@ RUN chown root:0 /usr/local/bin/createcerts && chmod g+wx /usr/local/bin/createc
 #Configure home directory
 ENV HOME=/home
 RUN chgrp -R 0 /${HOME} && chmod -R g=u /${HOME}
-#
+
 WORKDIR ${HOME}
 
 LABEL description="The createcerts job creates a self-signed certificate, along with private/public keys, and a password used to encrypt the private key."
