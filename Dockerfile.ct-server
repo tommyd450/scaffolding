@@ -17,7 +17,7 @@ RUN chown root:0 /usr/local/bin/ct_server && chmod g+wx /usr/local/bin/ct_server
 #Configure home directory
 ENV HOME=/home
 RUN chgrp -R 0 /${HOME} && chmod -R g=u /${HOME}
-#
+
 WORKDIR ${HOME}
 
 LABEL description="The binary responsible for providing the Certificate Transparency (CT) log server."
