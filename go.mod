@@ -2,7 +2,7 @@ module github.com/sigstore/scaffolding
 
 go 1.21
 
-toolchain go1.21.1
+// toolchain go1.21.1
 
 require (
 	chainguard.dev/exitdir v0.0.1

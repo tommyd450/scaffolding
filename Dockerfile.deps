@@ -2,3 +2,4 @@
 # If dependabot proposes an update to the container listed below, you should also update the value listed in '.ko.yaml' and cut a new release of scaffolding
 FROM gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.8.2-alpine as cloud-sql-proxy
 ENV FOO=BAR
+#
