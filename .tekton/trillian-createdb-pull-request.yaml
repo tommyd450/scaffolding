@@ -7,24 +7,24 @@ metadata:
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "redhat-v0.6" && ( "cmd/trillian/createdb/***".pathChanged() || ".tekton/createdb-0-6-pull-request.yaml".pathChanged() || "Dockerfile.createdb".pathChanged() || "config/trillian/createdb/***".pathChanged() || "go.mod".pathChanged() || "Makefile".pathChanged() )
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" && ( "cmd/trillian/createdb/***".pathChanged() || ".tekton/trillian-createdb-pull-request.yaml".pathChanged() || "Dockerfile.trillian-createdb.rh".pathChanged() || "config/trillian/createdb/***".pathChanged() || "go.mod".pathChanged() || "Makefile".pathChanged() )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: trillian-1-0-gamma
-    appstudio.openshift.io/component: createdb-0-6
+    appstudio.openshift.io/application: scaffold
+    appstudio.openshift.io/component: trillian-createdb
     pipelines.appstudio.openshift.io/type: build
-  name: createdb-0-6-on-pull-request
+  name: trillian-createdb-on-pull-request
   namespace: rhtas-tenant
 spec:
   params:
   - name: dockerfile
-    value: Dockerfile.createdb
+    value: Dockerfile.trillian-createdb.rh
   - name: git-url
     value: '{{repo_url}}'
   - name: image-expires-after
     value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhtas-tenant/trillian-1-0-gamma/createdb-0-6:on-pr-{{revision}}
+    value: quay.io/redhat-user-workloads/rhtas-tenant/scaffold/trillian-createdb:on-pr-{{revision}}
   - name: path-context
     value: .
   - name: revision

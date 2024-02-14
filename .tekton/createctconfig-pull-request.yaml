@@ -7,28 +7,32 @@ metadata:
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "redhat-v0.6" && ( ".tekton/ct-server-*-pull-request.yaml".pathChanged() || "Dockerfile.ct-server".pathChanged() || "hack/build-assets/*".pathChanged() )
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" && ( ".tekton/createctconfig-pull-request.yaml".pathChanged() || "Dockerfile.createctconfig.rh".pathChanged() || "Makefile".pathChanged() || "go.mod".pathChanged() || "cmd/ctlog/createctconfig/*".pathChanged() )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: scaffold-1-0-gamma
-    appstudio.openshift.io/component: ct-server-0-6
+    appstudio.openshift.io/application: scaffold
+    appstudio.openshift.io/component: createctconfig
     pipelines.appstudio.openshift.io/type: build
-  name: ct-server-0-6-on-pull-request
+  name: createctconfig-on-pull-request
   namespace: rhtas-tenant
 spec:
   params:
   - name: dockerfile
-    value: Dockerfile.ct-server
+    value: Dockerfile.createctconfig.rh
   - name: git-url
     value: '{{repo_url}}'
   - name: image-expires-after
     value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhtas-tenant/scaffold-1-0-gamma/ct-server-0-6:on-pr-{{revision}}
+    value: quay.io/redhat-user-workloads/rhtas-tenant/scaffold/createctconfig:on-pr-{{revision}}
   - name: path-context
     value: .
   - name: revision
     value: '{{revision}}'
+  - name: prefetch-input
+    value: '{"type": "gomod", "path": "."}'
+  - name: hermetic
+    value: "true"
   - name: build-source-image
     value: "true"
   pipelineSpec:

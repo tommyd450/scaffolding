@@ -4,24 +4,27 @@ metadata:
   annotations:
     build.appstudio.openshift.io/repo: https://github.com/securesign/scaffolding?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
+    build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "redhat-v0.6"
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" && (  ".tekton/fulcio-createcerts-pull-request.yaml".pathChanged() || "cmd/fulcio/createcerts/*".pathChanged() || "Dockerfile.fulcio-createcerts.rh".pathChanged() || "Makefile".pathChanged() || "go.mod".pathChanged() )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: scaffold-1-0-gamma
-    appstudio.openshift.io/component: ctlog-verify-fulcio-0-6
+    appstudio.openshift.io/application: scaffold
+    appstudio.openshift.io/component: fulcio-createcerts
     pipelines.appstudio.openshift.io/type: build
-  name: ctlog-verify-fulcio-0-6-on-push
+  name: fulcio-createcerts-on-pull-request
   namespace: rhtas-tenant
 spec:
   params:
   - name: dockerfile
-    value: Dockerfile.ctlog-verifyfulcio
+    value: Dockerfile.fulcio-createcerts.rh
   - name: git-url
     value: '{{repo_url}}'
+  - name: image-expires-after
+    value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhtas-tenant/scaffold-1-0-gamma/ctlog-verify-fulcio-0-6:{{revision}}
+    value: quay.io/redhat-user-workloads/rhtas-tenant/scaffold/fulcio-createcerts:on-pr-{{revision}}
   - name: path-context
     value: .
   - name: revision

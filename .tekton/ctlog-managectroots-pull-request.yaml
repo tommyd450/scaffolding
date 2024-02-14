@@ -4,32 +4,35 @@ metadata:
   annotations:
     build.appstudio.openshift.io/repo: https://github.com/securesign/scaffolding?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
+    build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "redhat-v0.6"
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" && ( "cmd/ctlog/managectroots/*".pathChanged() || ".tekton/ctlog-managectroots-pull-request.yaml".pathChanged() || "Dockerfile.ctlog-managectroots.rh".pathChanged() || "go.mod".pathChanged() || "Makefile".pathChanged() )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: fulcio-1-0-gamma
-    appstudio.openshift.io/component: createcerts-1-0-gamma
+    appstudio.openshift.io/application: scaffold
+    appstudio.openshift.io/component: ctlog-managectroots
     pipelines.appstudio.openshift.io/type: build
-  name: createcerts-1-0-gamma-on-push
+  name: ctlog-managectroots-on-pull-request
   namespace: rhtas-tenant
 spec:
   params:
   - name: dockerfile
-    value: Dockerfile.createcerts
+    value: Dockerfile.ctlog-managectroots.rh
   - name: git-url
     value: '{{repo_url}}'
+  - name: image-expires-after
+    value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhtas-tenant/fulcio-1-0-gamma/createcerts-1-0-gamma:{{revision}}
+    value: quay.io/redhat-user-workloads/rhtas-tenant/scaffold/ctlog-managectroots:on-pr-{{revision}}
   - name: path-context
     value: .
+  - name: revision
+    value: '{{revision}}'
   - name: prefetch-input
     value: '{"type": "gomod", "path": "."}'
   - name: hermetic
     value: "true"
-  - name: revision
-    value: '{{revision}}'
   - name: build-source-image
     value: "true"
   pipelineSpec:
