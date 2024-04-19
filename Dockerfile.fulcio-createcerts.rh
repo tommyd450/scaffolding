@@ -24,6 +24,7 @@ LABEL io.k8s.display-name="createcerts job container image for Red Hat trusted a
 LABEL io.openshift.tags="createcerts, Red Hat trusted artifact signer."
 LABEL summary="Provides the createcerts binary."
 LABEL com.redhat.component="createcerts"
+LABEL name="createcerts"
 
 # Set the binary as the entrypoint of the container
 ENTRYPOINT ["createcerts"]

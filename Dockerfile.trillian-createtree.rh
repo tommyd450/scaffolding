@@ -25,6 +25,7 @@ LABEL io.k8s.display-name="createtree job container image for Red Hat Trusted Ar
 LABEL io.openshift.tags="createtree, Red Hat trusted artifact signer."
 LABEL summary="Provides the createtree binary."
 LABEL com.redhat.component="createtree"
+LABEL name="createtree"
 
 # Set the binary as the entrypoint of the container
 ENTRYPOINT ["createtree"]
