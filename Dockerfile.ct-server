@@ -8,7 +8,7 @@ WORKDIR /ct_server/certificate-transparency-go-1.1.6/trillian/ctfe/ct_server
 RUN go build ./
 
 # Install server
-FROM registry.access.redhat.com/ubi9/ubi-minimal@sha256:7d1ea7ac0c6f464dac7bae6994f1658172bf6068229f40778a513bc90f47e624
+FROM registry.access.redhat.com/ubi9/ubi-minimal@sha256:73f7dcacb460dad137a58f24668470a5a2e47378838a0190eef0ab532c6e8998
 COPY --from=build-env /ct_server/certificate-transparency-go-1.1.6/trillian/ctfe/ct_server/ct_server /usr/local/bin/ct_server
 RUN chown root:0 /usr/local/bin/ct_server && chmod g+wx /usr/local/bin/ct_server
 
