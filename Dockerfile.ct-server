@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/go-toolset@sha256:001ec1ff65772f0fb6ff03d995a56f11492541d98b25cccf2d749f2ddbdbcea2 AS build-env
+FROM registry.access.redhat.com/ubi9/go-toolset@sha256:d73c4151518c73332717a52f5d22c670bf2f88e04a841e507aef0227b3100225 AS build-env
 USER root
 WORKDIR /ct_server
 RUN git config --global --add safe.directory /ct_server
