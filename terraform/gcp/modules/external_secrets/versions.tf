@@ -27,7 +27,7 @@ terraform {
       source  = "hashicorp/google-beta"
     }
     random = {
-      version = ">= 3.1.0, < 3.2.0"
+      version = "< 3.6.4"
       source  = "hashicorp/random"
     }
     kubectl = {
