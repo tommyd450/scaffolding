@@ -13,7 +13,7 @@ require (
 	github.com/google/trillian v1.5.2
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-retryablehttp v0.7.4
-	github.com/hashicorp/hcl v1.0.0
+	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/letsencrypt/boulder v0.0.0-20221109233200-85aa52084eaf
 	github.com/prometheus/client_golang v1.16.0
