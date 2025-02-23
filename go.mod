@@ -1,6 +1,8 @@
 module github.com/sigstore/scaffolding
 
-go 1.20
+go 1.21
+
+toolchain go1.22.9
 
 require (
 	chainguard.dev/exitdir v0.0.1
@@ -9,7 +11,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/golang/glog v1.1.1
 	github.com/google/certificate-transparency-go v1.1.6
-	github.com/google/go-cmp v0.5.9
+	github.com/google/go-cmp v0.7.0
 	github.com/google/trillian v1.5.2
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-retryablehttp v0.7.4
