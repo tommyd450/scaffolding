@@ -22,7 +22,7 @@ require (
 	github.com/sigstore/rekor v1.2.2
 	github.com/sigstore/sigstore v1.7.1
 	github.com/sigstore/timestamp-authority v1.1.1
-	github.com/theupdateframework/go-tuf v0.5.2
+	github.com/theupdateframework/go-tuf/v2 v2.0.2
 	github.com/titanous/rocacheck v0.0.0-20171023193734-afe73141d399
 	go.uber.org/zap v1.24.0
 	golang.org/x/crypto v0.11.0
