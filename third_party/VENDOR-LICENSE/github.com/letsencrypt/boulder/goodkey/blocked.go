@@ -10,7 +10,7 @@ import (
 
 	"github.com/letsencrypt/boulder/core"
 
-	yaml "gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v3"
 )
 
 // blockedKeys is a type for maintaining a map of SHA256 hashes
@@ -45,8 +45,9 @@ func (b blockedKeys) blocked(key crypto.PublicKey) (bool, error) {
 // ```
 // blocked:
 //   - cuwGhNNI6nfob5aqY90e7BleU6l7rfxku4X3UTJ3Z7M=
-//   <snipped>
+//     <snipped>
 //   - Qebc1V3SkX3izkYRGNJilm9Bcuvf0oox4U2Rn+b4JOE=
+//
 // ```
 //
 // If no hashes are found in the input YAML an error is returned.
