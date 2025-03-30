@@ -48,7 +48,7 @@ require (
 	cloud.google.com/go/monitoring v1.14.0 // indirect
 	cloud.google.com/go/trace v1.9.1 // indirect
 	contrib.go.opencensus.io/exporter/stackdriver v0.13.14 // indirect
-	filippo.io/edwards25519 v1.0.0 // indirect
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.6.1 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.3.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.3.0 // indirect
