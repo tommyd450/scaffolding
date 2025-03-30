@@ -28,7 +28,7 @@ require (
 	golang.org/x/crypto v0.11.0
 	google.golang.org/genproto v0.0.0-20230530153820-e85fd2cbaebc
 	google.golang.org/grpc v1.56.2
-	google.golang.org/protobuf v1.31.0
+	google.golang.org/protobuf v1.33.0
 	gopkg.in/square/go-jose.v2 v2.6.0
 	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/api v0.27.3
@@ -113,7 +113,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/gnostic v0.6.9 // indirect
 	github.com/google/go-containerregistry v0.15.2 // indirect
