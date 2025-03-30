@@ -1,6 +1,8 @@
 module github.com/sigstore/scaffolding
 
-go 1.20
+go 1.21
+
+toolchain go1.22.9
 
 require (
 	chainguard.dev/exitdir v0.0.1
@@ -9,7 +11,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/golang/glog v1.1.1
 	github.com/google/certificate-transparency-go v1.1.6
-	github.com/google/go-cmp v0.5.9
+	github.com/google/go-cmp v0.6.0
 	github.com/google/trillian v1.5.2
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-retryablehttp v0.7.4
@@ -41,8 +43,7 @@ require (
 )
 
 require (
-	cloud.google.com/go/compute v1.20.0 // indirect
-	cloud.google.com/go/compute/metadata v0.2.3 // indirect
+	cloud.google.com/go/compute/metadata v0.6.0 // indirect
 	cloud.google.com/go/iam v1.1.0 // indirect
 	cloud.google.com/go/kms v1.12.1 // indirect
 	cloud.google.com/go/monitoring v1.14.0 // indirect
@@ -205,7 +206,7 @@ require (
 	golang.org/x/net v0.12.0 // indirect
 	golang.org/x/oauth2 v0.9.0 // indirect
 	golang.org/x/sync v0.3.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/term v0.10.0 // indirect
 	golang.org/x/text v0.11.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
